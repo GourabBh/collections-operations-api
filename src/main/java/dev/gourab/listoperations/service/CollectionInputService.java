@@ -1,8 +1,6 @@
 package dev.gourab.listoperations.service;
 
-import java.util.Collections;
 import java.util.List;
-import java.util.stream.StreamSupport;
 
 import org.springframework.stereotype.Service;
 
@@ -75,11 +73,7 @@ public class CollectionInputService {
 	}
 
 	public List<CollectionInput> getAllCollectionInputs() {
-		Iterable<CollectionInput> collectionInputIterable = collectionInputRepository.findAll();
-		if (collectionInputIterable != null) {
-			return StreamSupport.stream(collectionInputIterable.spliterator(), false).toList();
-		}
-		return Collections.emptyList();
+		return collectionInputRepository.findAll();
 	}
 
 	/**
